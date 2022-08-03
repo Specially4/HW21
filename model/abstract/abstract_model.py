@@ -8,52 +8,46 @@ class AbstractStorage(ABC):
 
     @abstractmethod
     def add(self, name: str, count: int) -> None:
-        if name in self._items.keys():
-            self._items[name] = self._items[name] + count
-            self._capacity -= count
-        else:
-            self._items[name] = count
-            self._capacity -= count
+        pass
 
     @abstractmethod
     def remove(self, name: str, count: int) -> None:
-        self._items[name] = self._items[name] - count
-        self._capacity += count
+        pass
 
     @property
     @abstractmethod
     def free_space(self) -> int:
         """Возвращает количество свободных мест"""
 
-        return self._capacity
+        pass
 
     @free_space.setter
     def free_space(self, new_value):
-        self._capacity = new_value
+        pass
 
     @property
     @abstractmethod
     def items(self) -> dict:
         """Возвращает содержимое склада в виде словаря"""
 
-        return self._items
+        pass
 
     @items.setter
     def items(self, new_value):
-        self._items = new_value
+        pass
 
     @abstractmethod
     def get_unique_items_count(self, item) -> int:
         """Возвращает количество уникальных позиций"""
 
-        return self._items[item]
+        pass
 
     @abstractmethod
     def _check_free_space(self, count: int) -> bool:
         if self._capacity + count >= 0:
             return True
-        return False
+        pass
 
     @abstractmethod
     def _max_position(self) -> bool:
-        return True
+        pass
